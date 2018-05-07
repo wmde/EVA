@@ -1,0 +1,185 @@
+* {
+	font-family: Montserrat, Ubuntu, Lucida Grande, Helvetica Neue, DejaVu Sans, FreeSans, Liberation Sans, Droid Sans, sans;
+}
+input[type='time'] + input, input[type='date'] + input {text-align: right; }
+
+input[type='radio'], input[type='radio'] + label, label + input[type='text'] { display:inline;}
+
+
+.valid { border-color: green; color: green; }
+.invalid { border-color: red; color: red; }
+
+[readonly] { border: 0px none transparent;}
+fieldset span {text-align:right;}
+/*#printcontainer_top, #printcontainer_bottom, #datacontainer { position:absolute;left:50%; transform: translateX(-50%); }*/
+#printcontainer_top { top:3px;}
+abbr {
+	cursor:help;
+}
+
+.geld { text-align: right; }
+.geld:after { content:"€";}
+.geld:empty:after{color:lightgray}
+
+#Summe { font-size: 141%;}
+
+th, td, tr {
+	padding: 0.2rem;
+}
+
+th { font-size: 1rem; color: darkgray;}
+
+th, td {
+	border: 1px solid gray;
+}
+
+tr {
+	border: 0px none transparent;
+}
+
+table {
+	border-collapse: collapse;
+	border: 0px none transparent;
+}
+
+thead { display:table-header-group; }
+tfoot { display:table-footer-group; }
+
+.delete, #more, #more td, tbody { border: 0px none transparent;}
+#spalte0 { width:2rem; }
+/*#spalte1 { width:2rem; }*/
+#spalte2 { width:5rem; }
+#spalte3 { width:5rem; }
+#spalte4 { width:5rem; }
+/*#spalte5 { width:2rem; }
+#spalte6 { width:2rem; }
+#spalte7 { width:2rem; }*/
+#spalte8 { width:3rem; }
+
+.delbutton { width:100%;}
+#addbutton, .delbutton {
+	border-radius: 0.25em;
+	text-align:center;
+	font-weight: bold;
+	font-size: 200%;
+}
+body > h2{
+	margin-left:1rem;
+}
+h1 {
+  font-size: 150%;
+}
+h2 {
+  font-size: 120%;
+}
+p {
+  font-size: 75%;
+}
+::placeholder {
+ font-size: 75%;
+}
+fieldset{
+	margin:1rem 0 0 0;
+	border-color:transparent;
+	border-right: none;
+	border-top:1px solid silver;
+
+}
+
+fieldset > fieldset{
+	border:1px solid silver;
+	margin-top:1rem;
+}
+
+fieldset > label {
+	display: block;
+	color: grey;
+	font-size: 83%;
+	margin-top: 0.5rem;
+}
+.iblock {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.iblock label {
+	display: block;
+	font-size: 90%;
+}
+
+legend{
+	font-weight: bold;
+}
+
+fieldset fieldset legend{
+	color:#020202;
+}
+
+.resultbox{
+	padding:1em;
+	background-color:#cdddff;
+	margin:2px;
+	margin-top:1rem;
+}
+
+.resultvalue{
+	background-color:#eaf1ff;
+	border: 1px solid #347bff;
+	padding:2px;
+	margin-left:0.2em;
+}
+
+input[type=checkbox]{
+	margin-left:0.5em;
+}
+
+header, footer{
+	padding:1rem;
+}
+
+footer{
+	color: darkgray;
+}
+
+.print, .printiblock, .printcell { display:none;}
+
+.eintrag, .eintrag * {
+	page-break-inside:avoid;
+	page-break-after:auto;
+	break-inside:avoid;
+	break-after:auto;
+}
+#Aufstellung { page-break-inside:auto;}
+@media print {
+	fieldset, abbr, input, select, label { border-style: none !important; }
+	fieldset {border: 0;}
+	abbr {
+		border-bottom: none !important;
+		cursor: inherit !important;
+		text-decoration: none !important;
+		font-size: 75%;
+	}
+	input{
+		font-size:100%;
+	}
+	select { background:none; appearance: none; }
+	input:disabled { background:none; }
+	legend,
+	input[type='time'],
+	input[type='date'],
+	input[type='time'] + input,
+	input[type='date'] + input,
+	input:checked + label,
+	input:checked + label + input[type='text'],
+	#ts24h, #ts8h, #pausch,
+	select,
+	#Aufstellung input[type='text'] { font-weight: bold; color:#000000}
+	#printcontainer_bottom, #printcontainer_top, #datacontainer, footer { display:none; }
+	.screen, .delete { display:none !important; font-size:50%;}
+	.print { display:block;}
+	.printiblock { display:inline-block;}
+	.printcell { display:table-cell;}
+	#vorschuss { font-weight: bold;}
+	::placeholder{ color: transparent !important;}
+}
+abbr[title="Dieser Anspruch wurde für diesen Reisetag berechnet."] { font-weight: bold;}

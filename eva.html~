@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="de">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>WebApp EVA - Eintritt, Veränderung, Austritt</title>
+	<link rel="stylesheet" href="wikimedia.css">
+	<style type="text/css">
+	#menu {
+		display: flex;
+/*		flex-direction: column;*/
+		justify-content: center;
+		align-items: flex-end;
+	}
+	#menu li {
+/*		margin-left: 1em;
+		margin-right: 1em;*/
+		list-style: none;
+		border: 1px solid black;
+		width: 100px;
+	}
+	#menu li img {
+		width: 72px;
+		height: 100px;
+		padding: 0.5em;
+		margin-top: 10px;
+		transition: 0.1s;
+	}
+	
+	@keyframes whiteyellow {
+		from { }
+		to {background-color: yellow;}
+	}
+	@keyframes yellowgreen {
+		from {background-color: yellow; }
+		to {background-color: green;}
+	}
+	#menu li img:hover {
+		background-color: yellow;
+		width: 80px;
+		height: 110px;
+		margin-top: 0px;
+		transition: 0.5s;
+	}
+	#menu li img:active {
+		background-color: green;
+		transition: 0.1s;
+	}
+
+	#main {
+		display: flex;
+		flex-direction: column;
+	}
+	#context {
+		display: flex;
+		flex-direction: row;
+	}
+	</style>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		
+	});
+	</script>
+</head>
+
+<body>
+	<header>
+		<img style="float: right;" src="logo_web.png" alt="logo">
+		<h1>EVA - Eintritt, Veränderung, Austritt</h1>
+	</header>
+	<article role="main">
+	<ul id="menu">
+	<li><img id="new" src="images/new.svg" title="new employee" alt="Icon depicting creation of new employee file" /></li>
+	<li><img id="edit" src="images/edit.svg" title="edit employee" alt="Icon depicting editing of existing employee file" /></li>
+	<li><img id="leave" src="images/delete.svg" title="employee quit" alt="Icon depicting employee quitting" /></li>
+	<li><img src="images/persona.svg" title="persona" alt="Icon depicting employee" /></li>
+	</ul> <!-- /menu -->
+	<div id="context">
+	<ul id="content">
+	</ul> <!-- /content -->
+	<div id="form">
+	</div> <!-- /form -->
+	</div> <!-- /context -->
+	</article>
+	<footer>
+		<a href="mailto:wmde-it@wikimedia.de">Kontakt</a>
+		<p>© 2016 by Wikimedia Deutschland e.V.</p>
+		<address>Wikimedia Deutschland<br>
+Gesellschaft zur Förderung Freien Wissens e.V.<br>
+Postfach 61 03 49<br>
+10925 Berlin<br><br>
+
+http://wikimedia.de<br>
+Tel: 0 30/21 91 58 26-0<br>
+Fax: 0 30/21 91 58 26-9<br>
+E-Mail: info@wikimedia.de<br><br>
+
+IBAN DE05100205000003287300<br>
+BIC BFSWDE33BER<br>
+</address>
+	</footer>
+	<template id="evafile">
+	<li><img src="images/persona.svg" alt="Akte" title="Akte" /></li>
+	</template>
+<!--	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script></body>
+</html>
