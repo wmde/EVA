@@ -8,43 +8,44 @@
 	<style type="text/css">
 	#menu {
 		display: flex;
-/*		flex-direction: column;*/
 		justify-content: center;
 		align-items: flex-end;
 	}
-	#menu li {
-/*		margin-left: 1em;
-		margin-right: 1em;*/
+	#menu > li {
 		list-style: none;
-		border: 1px solid black;
-		width: 100px;
+		width: calc(82px + 1em);
 	}
-	#menu li img {
+	#menu > li > img {
 		width: 72px;
 		height: 100px;
-		padding: 0.5em;
-		margin-top: 10px;
+		padding-top: calc(0.5em + 10px);
+		padding-right: calc(0.5em + 8px);
+		padding-bottom: 0.5em;
+		padding-left: 0.5em;
+		margin: 0px;
+		border: 1px solid black;
 		transition: 0.1s;
 	}
 	
-	@keyframes whiteyellow {
-		from { }
-		to {background-color: yellow;}
-	}
-	@keyframes yellowgreen {
-		from {background-color: yellow; }
-		to {background-color: green;}
-	}
-	#menu li img:hover {
+	#menu > li > img:hover {
 		background-color: yellow;
 		width: 80px;
 		height: 110px;
+		padding: 0.5em;
 		margin-top: 0px;
-		transition: 0.5s;
+		transition: 0.2s;
 	}
-	#menu li img:active {
-		background-color: green;
+	#menu > li > img:active, .active {
+		background-color: limegreen;
 		transition: 0.1s;
+	}
+	#menu > li > img.active:hover {
+		background-color: limegreen;
+		width: 80px;
+		height: 110px;
+		padding: 0.5em;
+		margin-top: 0px;
+		transition: 0.2s;
 	}
 
 	#main {
@@ -56,16 +57,6 @@
 		flex-direction: row;
 	}
 	</style>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		$('#new').click(function() {
-		});
-		$('#edit').click(function() {
-		});
-		$('#leave').click(function() {
-		});
-	});
-	</script>
 </head>
 
 <body>
@@ -73,17 +64,17 @@
 		<img style="float: right;" src="logo_web.png" alt="logo">
 		<h1>EVA - Eintritt, Veränderung, Austritt</h1>
 	</header>
-	<article role="main">
-	<ul id="menu">
+	<article role="main"> <!-- main: area where the app resides, dir col-->
+	<ul id="menu"> <!-- main/menu: toggle between different app modes dir row -->
 	<li><img id="new" src="images/new.svg" title="new employee" alt="Icon depicting creation of new employee file" /></li>
 	<li><img id="edit" src="images/edit.svg" title="edit employee" alt="Icon depicting editing of existing employee file" /></li>
 	<li><img id="leave" src="images/delete.svg" title="employee quit" alt="Icon depicting employee quitting" /></li>
-	<li><img src="images/persona.svg" title="persona" alt="Icon depicting employee" /></li>
+	<li><img id="list"src="images/persona.svg" title="persona" alt="Icon depicting employee" /></li>
 	</ul> <!-- /menu -->
-	<div id="context">
-	<ul id="content">
+	<div id="context"> <!-- main/context: area for the currently selected app mode, dir row -->
+	<ul id="content"> <!-- main/context/content: area for data of the currently selected mode -->
 	</ul> <!-- /content -->
-	<div id="form">
+	<div id="form"> <!-- main/context/form: area for user interaction in current context -->
 	</div> <!-- /form -->
 	</div> <!-- /context -->
 	</article>
@@ -109,4 +100,17 @@ BIC BFSWDE33BER<br>
 	</template>
 <!--	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script></body>
+	<script type="text/javascript">
+		function context(c){
+			console.log('context(\''+c.data.context+'\')');
+			$('#menu li img').removeClass('active');
+			$('#'+c.data.context).addClass('active');
+		}
+		$(document).ready(function(){
+			$('#new').click({context: 'new'}, context);
+			$('#edit').click({context: 'edit'}, context);
+			$('#leave').click({context: 'leave'}, context);
+			$('#list').click({context: 'list'}, context);
+		});
+	</script>
 </html>
