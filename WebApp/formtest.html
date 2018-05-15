@@ -1,16 +1,17 @@
-<!doctype html>
-<html lang="de">
-<head>
+<!DOCTYPE html>
+<html>
+  <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>WebApp EVA - Eintritt, Veränderung, Austritt</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <base target="_top">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/css/bootstrap-datepicker3.min.css" rel="stylesheet">
 
-	<link rel="stylesheet" href="wikimedia.css">
+	<link rel="stylesheet" href="https://www.wikimedia.de/extern/wikimedia.css">
 	<style type="text/css">
 	#menu {
 		display: flex;
@@ -295,7 +296,7 @@ page navigation / page break / action bar styles
 
 <!-- ----------------------------------------------- -->
 <div class="container jf-form">
-<form data-licenseKey="" name="jqueryform-eea930" id="jqueryform-eea930" action='admin.php' method='post' enctype='multipart/form-data' novalidate autocomplete="on">
+    <form data-licenseKey="" name="jqueryform-eea930" id="jqueryform-eea930" action='<?= ScriptApp.getService().getUrl(); ?>' method='post' enctype='multipart/form-data' novalidate autocomplete="on">
 <input type="hidden" name="method" value="validateForm">
 <input type="hidden" id="serverValidationFields" name="serverValidationFields" value="">
 
@@ -1051,7 +1052,6 @@ page navigation / page break / action bar styles
 
 
 </form>
-
 <a href="http://www.jqueryform.com" target="_blank" class="jf-copyright">Powered by jqueryform.com</a>
 </div>
 
@@ -1073,9 +1073,9 @@ page navigation / page break / action bar styles
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
-<script src="vendor.js" ></script>
+<script src="https://www.wikimedia.de/extern/vendor.js" ></script>
 
-<script src="jqueryform.com.min.js?ver=v2.1.2&id=jqueryform-eea930" ></script>
+<script src="https://www.wikimedia.de/extern/jqueryform.com.min.js?ver=v2.1.2&id=jqueryform-eea930" ></script>
 
 
 
@@ -1198,41 +1198,11 @@ $('.jf-form input[type="checkbox"], .jf-form input[type="radio"]').each( functio
 
 </script>
 
-	</div> <!-- /form -->
-	</div> <!-- /context -->
-	</article>
-	<footer>
-		<a href="mailto:wmde-it@wikimedia.de">Kontakt</a>
-		<p>© 2016 by Wikimedia Deutschland e.V.</p>
-		<address>Wikimedia Deutschland<br>
-Gesellschaft zur Förderung Freien Wissens e.V.<br>
-Postfach 61 03 49<br>
-10925 Berlin<br><br>
 
-http://wikimedia.de<br>
-Tel: 0 30/21 91 58 26-0<br>
-Fax: 0 30/21 91 58 26-9<br>
-E-Mail: info@wikimedia.de<br><br>
-
-IBAN DE05100205000003287300<br>
-BIC BFSWDE33BER<br>
-</address>
-	</footer>
-	<template id="evafile">
-	<li><img src="images/persona.svg" alt="Akte" title="Akte" /></li>
-	</template>
-	</body>
-	<script type="text/javascript">
-		function context(c){
-			console.log('context(\''+c.data.context+'\')');
-			$('#menu li img').removeClass('active');
-			$('#'+c.data.context).addClass('active');
-		}
-		$(document).ready(function(){
-			$('#new').click({context: 'new'}, context);
-			$('#edit').click({context: 'edit'}, context);
-			$('#leave').click({context: 'leave'}, context);
-			$('#list').click({context: 'list'}, context);
-		});
-	</script>
+</div>
+</div>
+</article>
+  </body>
 </html>
+
+

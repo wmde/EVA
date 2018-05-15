@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <!--<form action="https://script.google.com/a/wikimedia.de/macros/s/AKfycbynDvCRI3WrCzvXSWx4eA5_QaStQytkgJHHLQ7jlCeem8PCfeY/dev" method="post">-->
+    <form action="<?= ScriptApp.getService().getUrl(); ?>" method="post">
+    <input name="f1" id="f1" type="text" length="20" />
+    <button name="submit" id="submit" type="submit" value="Submit">Submit</button>
+    </form>
+  </body>
+</html>
+
+

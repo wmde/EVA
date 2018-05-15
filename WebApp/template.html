@@ -5,12 +5,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>WebApp EVA - Eintritt, Veränderung, Austritt</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <base target="_top">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/css/bootstrap-datepicker3.min.css" rel="stylesheet">
 
-	<link rel="stylesheet" href="wikimedia.css">
+	<link rel="stylesheet" href="https://www.wikimedia.de/extern/wikimedia.css">
 	<style type="text/css">
 	#menu {
 		display: flex;
@@ -295,7 +296,7 @@ page navigation / page break / action bar styles
 
 <!-- ----------------------------------------------- -->
 <div class="container jf-form">
-<form data-licenseKey="" name="jqueryform-eea930" id="jqueryform-eea930" action='admin.php' method='post' enctype='multipart/form-data' novalidate autocomplete="on">
+<form data-licenseKey="" name="jqueryform-eea930" id="jqueryform-eea930" action='<?= ScriptApp.getService().getUrl(); ?>' method='post' enctype='multipart/form-data' novalidate autocomplete="on">
 <input type="hidden" name="method" value="validateForm">
 <input type="hidden" id="serverValidationFields" name="serverValidationFields" value="">
 
@@ -1073,9 +1074,9 @@ page navigation / page break / action bar styles
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
-<script src="vendor.js" ></script>
+<script src="https://www.wikimedia.de/extern/vendor.js" ></script>
 
-<script src="jqueryform.com.min.js?ver=v2.1.2&id=jqueryform-eea930" ></script>
+<script src="https://www.wikimedia.de/extern/jqueryform.com.min.js?ver=v2.1.2&id=jqueryform-eea930" ></script>
 
 
 
@@ -1235,4 +1236,33 @@ BIC BFSWDE33BER<br>
 			$('#list').click({context: 'list'}, context);
 		});
 	</script>
+    <script>
+    // Prevent forms from submitting.
+    function preventFormSubmit()
+    {
+      var forms = document.querySelectorAll('form');
+      for (var i = 0; i < forms.length; i++)
+      {
+        forms[i].addEventListener('submit', function(event)
+        {
+          event.preventDefault();
+        });
+      }
+    }
+    $(document).ready(preventFormSubmit);
+
+    function handleFormSubmit(formObject)
+    {
+      google.script.run.withSuccessHandler(updateUrl).processForm(formObject);
+    }
+    function updateUrl(url)
+    {
+      var div = document.getElementById('output');
+      div.innerHTML = '<a href="' + url + '">Got it!</a>';
+    }
+    function updateForm()
+    {
+      google.script.run.editParticipant();
+    }
+    </script>
 </html>

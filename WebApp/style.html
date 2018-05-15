@@ -1,0 +1,50 @@
+	#menu {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+	}
+	#menu > li {
+		list-style: none;
+		width: calc(82px + 1em);
+	}
+	#menu > li > img {
+		width: 72px;
+		height: 100px;
+		padding-top: calc(0.5em + 10px);
+		padding-right: calc(0.5em + 8px);
+		padding-bottom: 0.5em;
+		padding-left: 0.5em;
+		margin: 0px;
+		border: 1px solid black;
+		transition: 0.1s;
+	}
+	
+	#menu > li > img:hover {
+		background-color: yellow;
+		width: 80px;
+		height: 110px;
+		padding: 0.5em;
+		margin-top: 0px;
+		transition: 0.2s;
+	}
+	#menu > li > img:active, .active {
+		background-color: limegreen;
+		transition: 0.1s;
+	}
+	#menu > li > img.active:hover {
+		background-color: limegreen;
+		width: 80px;
+		height: 110px;
+		padding: 0.5em;
+		margin-top: 0px;
+		transition: 0.2s;
+	}
+
+	#main {
+		display: flex;
+		flex-direction: column;
+	}
+	#context {
+		display: flex;
+		flex-direction: row;
+	}
