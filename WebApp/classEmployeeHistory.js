@@ -7,7 +7,7 @@
  * @param {object Spreadsheet} ss instance of Spreadsheet
  */
 
-
+//FIXME Is it used?
 
 function EmployeeHistory(ss)
 {

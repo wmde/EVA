@@ -1,3 +1,18 @@
+var valid_users = [
+  'masin.al-dujaili@wikimedia.de',
+  'sandra.muellrick@wikimedia.de',
+  'tobias.gritschacher@wikimedia.de',
+  'jeroen.dedauw@wikimedia.de',
+  'daniel.king_ext@wikimedia.de',
+  'raz.shuty@wikimedia.de',
+  'aleksey.bekh-ivanov@wikimedia.de',
+  'lisa.koehler@wikimedia.de'
+];
+
+function test(){
+  Logger.log(valid_users.indexOf('aleksey.bekh-ivanov@wikimedia.de'));
+}
+
 function doGet(e) {
   Logger.log('führe doGet aus');
   REQUEST = 'get';
@@ -71,7 +86,8 @@ function buildStartScreen() {
   // n0yFdC0PQRAVQkYIVm8cedp/dev
   
   Logger.log(ScriptApp.getService().getUrl());
-  var template = HtmlService.createTemplateFromFile('formtest').evaluate();
+  var template = HtmlService.createTemplateFromFile('template').evaluate()
+  .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 //  Logger.log(template.getContent());
   return template;
 //  return "<p>Willkommen zu EVA.</p>";
@@ -88,7 +104,11 @@ function buildCreateForm() {
 function hasAccessLevel(user) {
   Logger.log(print_r(Session.getEffectiveUser()));
   Logger.log(print_r(user));
-  if(GroupsApp.getGroupByEmail('personal@wikimedia.de').hasUser(user) || (Session.getEffectiveUser().getEmail() == user.getEmail()))
+  if(
+    GroupsApp.getGroupByEmail('personal@wikimedia.de').hasUser(user) ||
+    (Session.getEffectiveUser().getEmail() == user.getEmail()) ||
+    ( -1 != valid_users.indexOf(user.getEmail().toLowerCase()) )
+  )
   {
     return 'full';
   }
@@ -108,5 +128,6 @@ function processForm(clientForm)
 {
   Logger.log(print_r(clientForm));
   Logger.log(clientForm.timestamp);
+  return true;
 }
 

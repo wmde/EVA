@@ -126,6 +126,7 @@ EVA.prototype.getEmployee = function(name)
  * @param {array} form - Array of values describing the employee state
  * @return {object Employee} object representing employee
  */
+//FIXME Is it used?
 EVA.prototype.createEmployee = function(name)
 {
   if(!EVA.getEmployee(name))

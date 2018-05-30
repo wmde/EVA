@@ -7,6 +7,8 @@
  * @param {number} c data column to work on.
  */
 
+//FIXME Is it used?
+
 function Revision(c)
 {
   var self = this;
