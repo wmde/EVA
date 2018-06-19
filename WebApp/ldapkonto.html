@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <p>Hallo IT,</p>
+    <p>Für <?= getFormValue('vorname')+' '+getFormValue('nachname'); ?> wird im Rahmen des Eintrittsprozesses <strong>folgendes LDAP-Konto</strong> angefragt:<p>
+    <ul><li><strong><?= getFormValue('vorname').slice(0,2) + getFormValue('nachname').slice(0,2); ?></strong></li></ul>
+    <p>Du kannst das Konto auf Kappa <a href="https://kappa.wikimedia.de">per Webinterface</a> oder auf der Kommandozeile anlegen:</p>
+    <pre>
+    ssh kappa
+    udm users/user create cn=users,dc=wikimedia,dc=de' --set username="<?= getFormValue('vorname').slice(0,2) + getFormValue('nachname').slice(0,2); ?>" --set firstname="<?= getFormValue('vorname').trim(); ?>" --set lastname="<?= getFormValue('nachname').trim(); ?>" --set PasswordRecoveryEmail="<?= getFormValue('email').trim(); ?>" --set password="1LiKo2VoDo3ToHe4MaAl"
+    </pre>
+  </body>
+</html>
+
+

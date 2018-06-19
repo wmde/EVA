@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <p>Hallo Kommunikation,</p>
+    <p><?= getFormValue('user');?> hat das Formular EVA: Eintritt für <?= getFormValue('vorname')+' '+getFormValue('nachname'); ?>
+    ausgefüllt für den Einsatz in <?= Utilities.formatString("%s (Team %s)", getFormValue('bereich'), getFormValue('team')); ?>.
+    Die anderen Beteiligten an dem Prozess wurden ebenfalls per E-Mail benachrichtigt.</p>
+    <p>Es wurde ausgewählt, dass <?= getFormValue('vorname'); ?> folgendes Kommunikationsprofil hat:</p>
+    <ul><li><?= getFormValue('kommprofil'); ?></li></ul>
+  </body>
+</html>
+
+

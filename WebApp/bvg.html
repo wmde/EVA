@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <p>Hallo Office,</p>
+    <p>Für <?= getFormValue('vorname')+' '+getFormValue('nachname'); ?> wird im Rahmen des Eintrittsprozesses folgendes BVG-Ticket angefragt:<p>
+    <ul><li><?= getFormValue('bvg'); ?></li></ul>
+    <p>Start des BVG-Tickets soll sein <?= Utilities.formatDate(getFormValue('bvgstart'), 'CET', 'yyyy-MM-dd') ?></p>
+  </body>
+</html>
+
+

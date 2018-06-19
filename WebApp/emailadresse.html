@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <p>Hallo IT,</p>
+    <p>Für <?= getFormValue('vorname')+' '+getFormValue('nachname'); ?> wird im Rahmen des Eintrittsprozesses <strong>folgende E-Mail-Adresse</strong> angefragt:<p>
+    <ul><li><strong><?= getFormValue('email'); ?></strong></li></ul>
+    <p>Damit die Adresse problemlos erreichbar ist, richte bitte bei <a href="">Domainfactory</a>die Weiterleitung von <?= getFormValue('email'); ?> auf <?= getFormValue('email').replace('@','@gapps.'); ?> ein.
+  </body>
+</html>
+
+

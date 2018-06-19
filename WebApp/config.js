@@ -4,11 +4,12 @@ var config = {
   'debug': true,
   'projekte': {
     'EVA': {
-      'spreadsheet': '15_o6U0yTbv4xrdd_Wk5qbsOsIQx4LiyWEIkrT7ubPPQ',
+/*      'spreadsheet': '15_o6U0yTbv4xrdd_Wk5qbsOsIQx4LiyWEIkrT7ubPPQ',
       'responses': 'Formularantworten',
       'form': '1FIVlHgxu9LLzh3jsqoHb4AQB0N5XZ1fPZLR0hw_C1Vs',
       'filter': '1uSP-alBZLQxl7kHmrzEcszuKTkVn3fMi2RJgXjfjnpU',
-      'directory': 'EVA'
+      'directory': 'EVA'*/
+      'spreadsheet': '1wRV60Jwz2semi73pwJ-wlFPvBpb83J2fHzxkpgKWkZI'
     },
   },
   'stakeholder': {

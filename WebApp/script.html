@@ -1,0 +1,67 @@
+<script type="text/javascript">
+function context(c){
+  console.log('context(\''+c.data.context+'\')');
+  $('#menu li img').removeClass('active');
+  $('#'+c.data.context).addClass('active');
+}
+
+$(document).ready(function(){
+  $('#new').click({context: 'new'}, context);
+  $('#edit').click({context: 'edit'}, context);
+  $('#leave').click({context: 'leave'}, context);
+  $('#list').click({context: 'list'}, context);
+  google.script.run.withSuccessHandler(displayList).queryFiles();
+//            $('#form').show();
+});
+</script>
+
+<script>
+function displayList(list) {
+  console.log(list);
+  var context = $('#context');
+  if( 'empty' !== list.result ) {
+    if( undefined !== typeof list.EVA ) {
+      $.each(list.EVA, insertEvaButton);
+    }
+  } else {
+    context.prepend($.parseHTML($('#persona_tpl').html()).css('opacity', '0.2'));
+  }
+  context.prepend($('#new_tpl').html());
+}
+
+function insertEvaButton( i, v ) {
+  console.log(i, v);
+}
+
+function insertNewButton() {
+  $('#context').prepend($('#new_tpl').html());
+//  document.getElementById('
+}
+
+// Prevent forms from submitting.
+function preventFormSubmit() {
+  var forms = document.querySelectorAll('form');
+  for (var i = 0; i < forms.length; i++) {
+    forms[i].addEventListener('submit', function(event) {
+      event.preventDefault();
+    });
+  }
+  $('form').submit(handleFormSubmit);
+  }
+$(document).ready(preventFormSubmit);
+//    window.addEventListener('load', preventFormSubmit);
+
+function handleFormSubmit(formSubmitEvent) {
+  console.log('handleFormSubmit', formSubmitEvent);
+  return google.script.run.withSuccessHandler(updateUrl).processForm(formSubmitEvent.target);
+}
+
+function updateUrl(url) {
+  console.log('updateUrl', url);
+//      var div = document.getElementById('output');
+//      div.innerHTML = '<a href="' + url + '">Got it!</a>';
+}
+function updateForm() {
+  google.script.run.editParticipant();
+}
+    </script>

@@ -1,3 +1,4 @@
+var debug = true;
 var valid_users = [
   'masin.al-dujaili@wikimedia.de',
   'sandra.muellrick@wikimedia.de',
@@ -77,8 +78,35 @@ function main(e, method) {
   return content;
 }
 
-function listEmployeeFiles() {
+function onlyUnique(value, index, self) { 
+    return self.indexOf(value) === index;
+}
 
+function getFormValue(v){
+  if(undefined == getFormValue.formData) return undefined;
+  if(undefined == getFormValue.formData[v]) return undefined;
+  return getFormValue.formData[v];
+}
+
+function queryFiles() {
+  var eva = SpreadsheetApp.openById(config.projekte.EVA.spreadsheet),
+      all = eva.getSheetByName('EVA komplett'),
+      meta = eva.getSheetByName('Meta-EVA');
+//  var names_unfiltered = all.getRange(2, 1, all.getLastRow()-1, 2).getValues(),
+  
+  Logger.log( "LastRow = %s", all.getLastRow() );
+  if( 2 > all.getLastRow() ) {
+    return { "result": "empty" };
+  } else {
+    var names_unfiltered = all.getRange(2, 1, 1, 2).getValues(),
+        s, h, names = [];
+
+    for( var r = 0; r < names_unfiltered.length; r++ ) {
+      names[r]['Nachname'] = names_unfilterd[r][0];
+      names[r]['Vorname'] = names_unfilterd[r][1];
+    }
+    Logger.log('Namen: %s', print_r(names));
+  }
 }
 
 function buildStartScreen() {
@@ -124,10 +152,50 @@ function include(filename) {
       .getContent();
 }
 
+function validateForm(){
+  if(debug) Logger.log("validateForm()");
+  return "<strong>Danke für die Daten.</strong>";
+}
+
+function sendVerificationCode(){
+  if(debug) Logger.log("sendVerificationCode()");
+  return "<strong>sendVerificationCode() nicht implementiert</strong>";
+}
+
+function verifyCode(){
+  if(debug) Logger.log("verifyCode()");
+  return "<strong>verifyCode() nicht implementiert</strong>";
+}
+
+function forgotPassword(){
+  if(debug) Logger.log("forgotPassword()");
+  return "<strong>forgotPassword() nicht implementiert</strong>";
+}
+
+function csrfToken(){
+  if(debug) Logger.log("csrfToken()");
+  return "<strong>csrfToken() nicht implementiert</strong>";
+}
+
+function logout(){
+  if(debug) Logger.log("logout()");
+  return "<strong>logout() nicht implementiert</strong>";
+}
+
 function processForm(clientForm)
 {
+  var methods = [
+    'validateForm',
+    'sendVerificationCode',
+    'verifyCode',
+    'forgotPassword',
+    'csrfToken',
+    'logout'
+  ];
+  var method = (undefined !== typeof clientForm['method'])  ? clientForm['method']  : 'unknown';
+  var isPublic = (-1 !==  methods.indexOf(method) );
   Logger.log(print_r(clientForm));
-  Logger.log(clientForm.timestamp);
-  return true;
+  if (isPublic) return eval(method+"();");
+  return "<strong>Nicht implementiert</strong>";
 }
 

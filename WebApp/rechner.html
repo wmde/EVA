@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <p>Hallo IT,</p>
+    <p>Für <?= getFormValue('vorname')+' '+getFormValue('nachname'); ?> wird im Rahmen des Eintrittsprozesses <strong>folgender Rechner</strong> angefragt:<p>
+    <ul><li><strong><?= getFormValue('rechner'); ?></strong></li></ul>
+    <?
+//    if(getFormValue('weitereanforderungen')
+    ?>
+  </body>
+</html>
+
+
