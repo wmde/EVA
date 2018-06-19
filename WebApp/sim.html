@@ -4,7 +4,12 @@
     <base target="_top">
   </head>
   <body>
-    
+    <p>Hallo IT,</p>
+    <p>Für <?= getFormValue('vorname')+' '+getFormValue('nachname'); ?>
+    wird im Rahmen des Eintrittsprozesses ein
+    <strong>Mobilfunkvertrag</strong>
+    angefragt:<p>
+    <ul><li><strong><?= getFormValue('mobilfunkvertrag'); ?></strong></li></ul>
   </body>
 </html>
 

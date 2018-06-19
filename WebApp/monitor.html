@@ -4,7 +4,15 @@
     <base target="_top">
   </head>
   <body>
-    
+    <p>Hallo IT,</p>
+    <p>Für <?= getFormValue('vorname')+' '+getFormValue('nachname'); ?>
+    wird im Rahmen des Eintrittsprozesses
+    <strong>ein zusätzlicher externer Monitor</strong>
+    angefragt:<p>
+    <ul><li><strong><?= getFormValue('rechner'); ?></strong></li></ul>
+    <?
+//    if(getFormValue('weitereanforderungen')
+    ?>
   </body>
 </html>
 

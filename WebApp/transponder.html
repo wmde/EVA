@@ -4,7 +4,19 @@
     <base target="_top">
   </head>
   <body>
-    
+    <p>Hallo Office,</p>
+    <p>Für <?= getFormValue('vorname')+' '+getFormValue('nachname'); ?>
+    wird im Rahmen des Eintrittsprozesses
+    <strong>ein Transponder mit folgenden Schließungen</strong>
+    angefragt:<p>
+    <ul>
+    <li><strong><?= getFormValue('transponder')
+    //.replace(',',"</strong></li>\n<li><strong>")
+    ; ?></strong></li>
+    </ul>
+    <?
+//    if(getFormValue('weitereanforderungen')
+    ?>
   </body>
 </html>
 

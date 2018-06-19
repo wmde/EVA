@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <p>Hallo Office,</p>
+    <p>Für <?= getFormValue('vorname')+' '+getFormValue('nachname'); ?>
+    wird im Rahmen des Eintrittsprozesses
+    <? var postfach = getFormValue('postfach');
+    if('ja' !== postfach) { ?>
+    <strong>kein Postfach</strong>
+    <? } else { ?>
+    <strong>ein Postfach</strong>
+    angefragt.<p>
+    <p>Bitte bereitet das Postfach bis <?= getFormValue('vertrag');?> vor.</p>
+    <? } ?>
+  </body>
+</html>
+
+

@@ -5,8 +5,10 @@
   </head>
   <body>
     <p>Hallo Vorstandsassistenz,</p>
-    <p><?= getFormValue('user');?> hat das Formular EVA: Eintritt für <?= getFormValue('vorname')+' '+getFormValue('nachname'); ?>
-    ausgefüllt für den Einsatz in <?= Utilities.formatString("%s (Team %s)", getFormValue('bereich'), getFormValue('team')); ?>.
+    <p><?= getFormValue('user');?> hat das Formular EVA: Eintritt für
+    <?= getFormValue('vorname')+' '+getFormValue('nachname'); ?>
+    ausgefüllt für den Einsatz in
+    <?= Utilities.formatString("%s (Team %s)", getFormValue('bereich'), getFormValue('team')); ?>.
     Die anderen Beteiligten an dem Prozess wurden ebenfalls per E-Mail benachrichtigt.</p>
   </body>
 </html>

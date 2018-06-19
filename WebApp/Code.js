@@ -88,6 +88,46 @@ function getFormValue(v){
   return getFormValue.formData[v];
 }
 
+function validate(value)
+{
+  Logger.log('validating %s', value);
+  if(undefined !== value) {
+    if('' !== value) {
+      return value;
+    }
+  }
+  return undefined;
+}
+
+function setFormValues(e){
+  Logger.log('setting form values');
+  getFormValue.formData = new Object();
+  getFormValue.formData.nachname = validate(e.f5);
+  getFormValue.formData.vorname = validate(e.f6);
+  getFormValue.formData.email = validate(e.f7);
+  getFormValue.formData.bereich = validate(e.f9);
+  getFormValue.formData.team = validate(e.f10);
+  getFormValue.formData.vertrag = validate(e.f14);
+  getFormValue.formData.erstertag = validate(e.f15);
+  getFormValue.formData.stelle = validate(e.f16);
+  getFormValue.formData.stelleEN = validate(e.f17);
+  getFormValue.formData.kommprofil = validate(e.f18);
+  getFormValue.formData.sitzplatz = validate(e.f20);
+  getFormValue.formData.rechner = validate(e.f22);
+  getFormValue.formData.os = validate(e.f23);
+  getFormValue.formData.monitor = validate(e.f24);
+  getFormValue.formData.mobiltelefon = validate(e.f25);
+  getFormValue.formData.mobilfunkvertrag = validate(e.f26);
+  getFormValue.formData.dect = validate(e.f27);
+  getFormValue.formData.weitereanforderungen = validate(e.f28);
+  getFormValue.formData.zugaenge = validate(e.f29);
+  getFormValue.formData.mailinglisten = validate(e.f31);
+  getFormValue.formData.bvg = validate(e.f33);
+  getFormValue.formData.bvgstart = validate(e.f34);
+  getFormValue.formData.transponder = validate(e.f35);
+  getFormValue.formData.postfach = validate(e.f36);
+}
+
 function queryFiles() {
   var eva = SpreadsheetApp.openById(config.projekte.EVA.spreadsheet),
       all = eva.getSheetByName('EVA komplett'),
@@ -195,6 +235,8 @@ function processForm(clientForm)
   var method = (undefined !== typeof clientForm['method'])  ? clientForm['method']  : 'unknown';
   var isPublic = (-1 !==  methods.indexOf(method) );
   Logger.log(print_r(clientForm));
+  setFormValues(clientForm);
+  Logger.log(print_r(getFormValue.formData));
   if (isPublic) return eval(method+"();");
   return "<strong>Nicht implementiert</strong>";
 }

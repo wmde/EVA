@@ -5,9 +5,13 @@
   </head>
   <body>
     <p>Hallo Office,</p>
-    <p>Für <?= getFormValue('vorname')+' '+getFormValue('nachname'); ?> wird im Rahmen des Eintrittsprozesses folgendes BVG-Ticket angefragt:<p>
+    <p>Für <?= getFormValue('vorname')+' '+getFormValue('nachname'); ?>
+    wird im Rahmen des Eintrittsprozesses
+    <strong>folgendes BVG-Ticket</strong>
+    angefragt:<p>
     <ul><li><?= getFormValue('bvg'); ?></li></ul>
-    <p>Start des BVG-Tickets soll sein <?= Utilities.formatDate(getFormValue('bvgstart'), 'CET', 'yyyy-MM-dd') ?></p>
+    <p>Start des BVG-Tickets soll sein
+    <?= Utilities.formatDate(getFormValue('bvgstart'), 'CET', 'yyyy-MM-dd') ?></p>
   </body>
 </html>
 
